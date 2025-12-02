@@ -1,0 +1,58 @@
+<style>
+    #btnNav{
+        display: flex;
+        justify-content: center;
+        gap: 3em
+    }
+    #imgSettings{
+        display: flex;
+        justify-content: center;
+        margin-top: 2em;
+        width: 100%;
+        height: auto;
+    }
+    button{
+        padding: 1em 2em;
+        background-color:lavender;
+        color: purple;
+        font-weight: bold;
+        border: 2.5px solid purple;
+        border-radius: 25px;
+    }
+</style>
+
+<body>
+    <div id="imgSettings"><img src="images/5.gif" name="picture" /></div>
+    <div id="testCount"></div>
+    <br />
+    <div id="btnNav">
+        <button id="prev">PREV</button>
+        <button id="next">NEXT</button>
+    </div>
+   
+
+
+    <script type="text/javascript">
+        let locations = new Array("images/1.gif", "images/2.gif",
+            "images/3.gif", "images/4.gif");
+        let currentImage = 0;
+
+        let nextBtn = document.querySelector("#next");
+        let prevBtn = document.querySelector("#prev");
+        nextBtn.addEventListener("click", function(event){
+            currentImage++;
+            if (currentImage == locations.length) 
+                currentImage = 0;                
+            document.images["picture"].src = locations[currentImage];
+            return false;
+        });
+        prevBtn.addEventListener("click", function(event){
+            currentImage--;
+            if (currentImage <= 0) 
+                currentImage = 0;                
+            document.images["picture"].src = locations[currentImage];
+            return false;
+        });
+    </script>
+</body>
+
