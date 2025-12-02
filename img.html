@@ -48,8 +48,8 @@
         });
         prevBtn.addEventListener("click", function(event){
             currentImage--;
-            if (currentImage <= 0) 
-                currentImage = 0;                
+            if (currentImage < 0) 
+                currentImage = locations.length - 1;                
             document.images["picture"].src = locations[currentImage];
             return false;
         });
